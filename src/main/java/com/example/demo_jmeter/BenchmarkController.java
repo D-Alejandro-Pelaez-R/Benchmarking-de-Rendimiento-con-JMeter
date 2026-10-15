@@ -49,5 +49,22 @@ public class BenchmarkController {
         return "Ineficiente O(n^2) para n=" + n + " completado en: (fin - inicio) = " + (fin - inicio) + " ms. Resultado: " + acumulador;
 
     }
+    // ALGORITMO OPTIMIZADO: Un solo bucle lineal - Complejidad O( n )
+    @GetMapping("/optimizado")
+    public String procesamientoOptimizado(@RequestParam(defaultValue = "2000") int n) 
+    {
+        long inicio = System.currentTimeMillis();
+        
+        long acumulador = 0;
+        // Bucle único lineal O( n )
+        for (int i = 0; i < (n * n); i++) {
 
+            acumulador += i % 3;
+
+        }
+        
+        long fin = System.currentTimeMillis();
+        
+        return "Optimizado O( n ) equivalente para n=" + n + " completado en: (fin - inicio) = " + (fin - inicio) + " ms. Resultado: " + acumulador;
+    }
 }
